@@ -648,6 +648,12 @@ help(print_max)
 ## Fine prima parte
 # Domande?
 
+
+---
+
+# Seconda parte
+
+
 ---
 
 # Moduli
@@ -667,7 +673,9 @@ help(print_max)
  
  
 ```python
->>> import mio_modulo
+>>> import math
+>>> math.sqrt(16)
+4.0
 ```
 <!-- .element: class="fragment" -->
 
@@ -714,7 +722,7 @@ else:
 * dir(qualcosa) elenca "gli attributi" di un oggetto
 <!-- .element: class="fragment" -->
 
-* chiamata su un modulo ne stampa il contenuto
+* chiamata su un modulo ne restituisce il contenuto
 <!-- .element: class="fragment" -->
 
 
@@ -726,14 +734,6 @@ else:
 
 ## Liste
 
-```python
->>> spesa = ['mele', 'pasta']
->>> spesa.append('fragole')
->>> spesa[0] = 'pere'
-['pere', 'pasta', 'fragole']
-```
-<!-- .element: class="fragment" -->
-
 - Contengono una sequenza ordinata di oggetti
 <!-- .element: class="fragment" -->
 
@@ -743,14 +743,18 @@ else:
 - Si definiscono usando parentesi **quadre**
 <!-- .element: class="fragment" -->
 
+
+```python
+>>> spesa = ['mele', 'pasta']
+>>> spesa.append('fragole')
+>>> spesa[0] = 'pere'
+['pere', 'pasta', 'fragole']
+```
+<!-- .element: class="fragment" -->
+
 --
 
 ## Tuple
-
-```python
->>> mia_tupla = (42, "ciao", 3.7)
-```
-<!-- .element: class="fragment" -->
 
 - Contengono una sequenza ordinata di oggetti
 <!-- .element: class="fragment" -->
@@ -761,9 +765,21 @@ else:
 - Si definiscono usando parentesi **tonde**
 <!-- .element: class="fragment" -->
 
+```python
+>>> mia_tupla = (42, "ciao", 3.7)
+```
+<!-- .element: class="fragment" -->
+
+
 --
 
 ## Dizionari
+
+- Permettono di associare dei *valori* a delle *chiavi*
+<!-- .element: class="fragment" -->
+
+- Le chiavi devono essere *immutabili*
+<!-- .element: class="fragment" -->
 
 ```python
 >>> indirizzi = {
@@ -775,12 +791,6 @@ else:
 ```
 <!-- .element: class="fragment" -->
 
-- Permettono di associare dei *valori* a delle *chiavi*
-<!-- .element: class="fragment" -->
-
-- Le chiavi devono essere *immutabili*
-<!-- .element: class="fragment" -->
-
 --
 
 ## Sequenze
@@ -788,13 +798,13 @@ else:
 - Liste, tuple e stringhe
 <!-- .element: class="fragment" -->
 
-- È possibile eseguire determinate operazioni comun
+- È possibile eseguire determinate operazioni comuni
 <!-- .element: class="fragment" -->
 
 - Come i test di appartenenza (`in` e `not in`) e le operazioni con gli indici
 <!-- .element: class="fragment" -->
 
-```pyhton
+```python
 >>> spesa = ['mela', 'mango', 'carota']
 >>> 'mela' in spesa
 True
@@ -807,11 +817,6 @@ True
 
 ## Set (o Insiemi)
 
-```pyhton
-frutta = {'mela', 'pera', 'banana'}
-```
-<!-- .element: class="fragment" -->
-
 - Collezioni *non ordinate* di oggetti, senza duplicati.
 <!-- .element: class="fragment" -->
 
@@ -819,6 +824,11 @@ frutta = {'mela', 'pera', 'banana'}
 <!-- .element: class="fragment" -->
 
 - Si definiscono usando parentesi **graffe**
+<!-- .element: class="fragment" -->
+
+```python
+frutta = {'mela', 'pera', 'banana'}
+```
 <!-- .element: class="fragment" -->
 
 --
@@ -922,7 +932,7 @@ class Giocatore(object):
 		self.x += self.velocita
 
 player1 = Giocatore(4, 5)
-sposta(player1)
+player1.sposta()
 ```
 
 
@@ -1003,6 +1013,7 @@ with open("documento.txt", "w") as f:
 - Non serve chiudere esplicitamente
 <!-- .element: class="fragment" -->
 
+
 ---
 
 # Errori ed Eccezioni
@@ -1032,7 +1043,8 @@ SyntaxError: invalid syntax
 - Rappresentano il verificarsi di situazioni *eccezionali*
 <!-- .element: class="fragment" -->
 
-- Cosa succede se stiamo tentando di leggere un file che non esiste? O se lo eliminiamo mentre il nostro programma è in esecuzione?
+- Cosa succede se stiamo tentando di leggere un file che non esiste? O se
+  cerchiamo di dividere per zero?
 <!-- .element: class="fragment" -->
 
 --
