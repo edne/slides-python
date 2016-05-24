@@ -112,6 +112,13 @@
 
 ---
 
+# Links
+
+* [A Byte of Python](http://www.swaroopch.com/notes/python/)
+* [Python Tutorial](https://docs.python.org/3.5/tutorial/)
+
+---
+
 # About Python
 
 --
@@ -134,6 +141,7 @@ ispirandosi allo show BBC  "Monty Python's Flying Circus"
 * Orientato agli Oggetti <!-- .element: class="fragment" -->
 * Estendibile <!-- .element: class="fragment" -->
 * Embeddable <!-- .element: class="fragment" --> 
+* Batterie Incluse <!-- .element: class="fragment" --> 
 
 
 ---
@@ -339,10 +347,21 @@ Per identificare un blocco di codice si usano __4 spazi__
 <li><code>-5.2</code> gives a negative number and <code>50 - 24</code> gives <code>26</code>.</li>
 </ul>
 </li>
-<li><p><code>*</code> (multiply)</p>
+</ul>
+
+--
+
+<ul>
+<li><p>`*` (multiply)</p>
 <ul>
 <li>Gives the multiplication of the two numbers or returns the string repeated that many times.</li>
-<li><code>2 * 3</code> gives <code>6</code>. <code>&apos;la&apos; * 3</code> gives <code>&apos;lalala&apos;</code>.</li>
+<li>`2 * 3` gives <code>6</code>. <code>&apos;la&apos; `*` 3</code> gives <code>&apos;lalala&apos;</code>.</li>
+</ul>
+</li>
+<li><p>`**` (power)</p>
+<ul>
+<li>Returns x to the power of y</li>
+<li><code>3 `**` 4</code> gives <code>81</code> (i.e. `3 * 3 * 3 * 3`)</li>
 </ul>
 </li>
 </ul>
@@ -350,12 +369,6 @@ Per identificare un blocco di codice si usano __4 spazi__
 --
 
 <ul>
-<li><p><code>**</code> (power)</p>
-<ul>
-<li>Returns x to the power of y</li>
-<li><code>3 ** 4</code> gives <code>81</code> (i.e. <code>3 * 3 * 3 * 3</code>)</li>
-</ul>
-</li>
 <li><p><code>/</code> (divide)</p>
 <ul>
 <li>Divide x by y</li>
@@ -369,17 +382,17 @@ Per identificare un blocco di codice si usano __4 spazi__
 <li><code>-13 // 3</code> gives <code>-5</code></li>
 </ul>
 </li>
-</ul>
-
---
-
-<ul>
 <li><p><code>%</code> (modulo)</p>
 <ul>
 <li>Returns the remainder of the division</li>
 <li><code>13 % 3</code> gives <code>1</code>. <code>-25.5 % 2.25</code> gives <code>1.5</code>.</li>
 </ul>
 </li>
+</ul>
+
+--
+
+<ul>
 <li><p><code>&lt;&lt;</code> (left shift)</p>
 <ul>
 <li>Shifts the bits of the number to the left by the number of bits specified. (Each number is represented in memory by bits or binary digits i.e. 0 and 1)</li>
@@ -411,7 +424,11 @@ Per identificare un blocco di codice si usano __4 spazi__
 <li><code>5 | 3</code> gives <code>7</code></li>
 </ul>
 </li>
+</ul>
 
+--
+
+<ul>
 <li><p><code>^</code> (bit-wise XOR)</p>
 <ul>
 <li>Bitwise XOR of the numbers</li>
@@ -495,6 +512,11 @@ Per identificare un blocco di codice si usano __4 spazi__
 <li><code>x = False; y = True; x and y</code> returns <code>False</code> since x is False. In this case, Python will not evaluate y since it knows that the left hand side of the &apos;and&apos; expression is <code>False</code> which implies that the whole expression will be <code>False</code> irrespective of the other values. This is called short-circuit evaluation.</li>
 </ul>
 </li>
+</ul>
+
+--
+
+<ul>
 <li><p><code>or</code> (boolean OR)</p>
 <ul>
 <li>If x is <code>True</code>, it returns True, else it returns evaluation of y</li>
@@ -631,68 +653,63 @@ else:
 
 --
 
-## Cosa sono?
+## Funzioni
 
-* sequenze di istruzioni <!-- .element: class="fragment" -->
-* con degli ingressi e un'uscita <!-- .element: class="fragment" -->
-
-```python
->>> abs(-3)
-3
-```
-<!-- .element: class="fragment" -->
-
-```python
->>> min(3, 4, 2)
-2
-```
-<!-- .element: class="fragment" -->
+* Porzioni riusabili di un programma <!-- .element: class="fragment" -->
+* Il concetto più importante per costruire un programma <!-- .element: class="fragment" -->
+* Ci permettono di dare un nome a un blocco di istruzioni <!-- .element: class="fragment" -->
+* E di eseguirlo un numero qualsiasi di volte, "chiamando" la funzione <!-- .element: class="fragment" -->
+* <!-- .element: class="fragment" --> Si definiscono con la keyword `def`
 
 --
 
-## print()
-
-Stampa l'ingresso che gli viene passato
+## Esempio
 
 ```python
->>> y = 4.2
->>> print(y)
-4.2
-```
+def say_hello():
+	# block belonging to the function
+	print('hello world')
 
-Supporta più argomenti <!-- .element: class="fragment" -->
+# End of function
 
-```python
->>> print(10, 1 + 2)
-10 3
-```
-<!-- .element: class="fragment" -->
-
---
-
-## First things First
-
-```python
-def test():
-	pass
+say_hello() # call the function
+say_hello() # call the function again
 ```
 
 --
 
 ## Parametri e Argomenti
 
-Valori parametrici che la funzione utilizzerà al suo interno
+* Le funzioni posso specificare dei "parametri"
+ - ogni volta che si chiama la funzione, deve essere passato un valore per ogni parametro
+* I valori che vengono passati durante la chiamata sono detti "argomenti"
 
 ```python
-def test(a, b):
+def test(a, b): # a, b sono i parametri
 	print(a+b)
+
+test(3, 4) # 3, 4 sono gli argomenti
 ```
+
+--
+
+## Variabili locali
+
+* Le variabili definite dentro una funzione sono **locali**
+* Non sono correlate con variabili dello stesso nome, definite fuori
+
+--
+
+## Lo statement global
+
+* Permette di definire una variabile globale all'intero di una funzione
 
 --
 
 ## Argomenti di default
 
-Se omettiamo un parametro, la funzione userà quello di default
+* Alcuni parametri possono essere dichiarati opzionali
+* Se omettiamo l'argomento, la funzione userà quello di default
 
 ```python
 def say(message, times=1):
@@ -722,7 +739,7 @@ func(c=50, a=100)
 <!-- .slide: data-background="#006600" -->
 ## Approfondimento: parametri VarArgs
 
-Possiamo scegliere di accettare qualsiasi parametro ci viene passato
+Possiamo scegliere di accettare qualsiasi argomento ci viene passato
 
 ```python
 >>> def test(*args, **kwargs):
@@ -766,16 +783,13 @@ nananananananananananana
 def print_max(x, y):
 	"""Prints the maximum of two numbers.
 	The two values must be integers."""
-
 	# convert to integers, if possible
 	x = int(x)
 	y = int(y)
-
 	if x > y:
 		print(x, 'is maximum')
 	else:
 		print(y, 'is maximum')
-
 print_max(3, 5)
 help(print_max)
 ```
@@ -1162,13 +1176,6 @@ class InvalidEmail(ValueError):
 ---
 
 # The End
-
----
-
-# Links
-
-* [A Byte of Python](http://www.swaroopch.com/notes/python/)
-* [Python Tutorial](https://docs.python.org/3.5/tutorial/)
 
 ---
 
